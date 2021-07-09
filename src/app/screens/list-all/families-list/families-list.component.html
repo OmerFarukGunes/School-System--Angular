@@ -1,0 +1,27 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ANNE İSMİ</th>
+        <th scope="col">BABA İSMİ</th>
+        <th scope="col">ANNE TC NUMARASI</th>
+        <th scope="col">BABA TC NUMARASI</th>
+        <th scope="col">ANNE TELEFON NUMARASI</th>
+        <th scope="col">BABA TELEFON NUMARASI</th>
+        <th scope="col">İŞLEMLER</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let family of family!; let i = index;  ">
+        <th scope="row">{{i+1}}</th>
+        <td>{{family.motherName}}</td>
+        <td>{{family.fatherName}}</td>
+        <td>{{family.motherTc}}</td>
+        <td>{{family.fatherTc}}</td>
+        <td>{{family.motherNumber}}</td>
+        <td>{{family.fatherNumber}}</td>
+        <button class="btn btn-sm  btn-info" [routerLink]="['/familyDetail/', family.id]"> Ebeveyn Detayı</button>
+        <button class="btn btn-sm btn-info" (click)="onDelete(family.id,family.loginId)"> Sil</button>
+      </tr>
+    </tbody>
+  </table>

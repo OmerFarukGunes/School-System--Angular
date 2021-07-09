@@ -1,0 +1,77 @@
+{
+  "students": [
+    {
+      "name": "Ömer Faruk",
+      "surName": "Güneş",
+      "tc": 46186678398,
+      "schoolNumber": 2017556029,
+      "address": "DENEME ADRES",
+      "loginId": 5,
+      "id": 1
+    },
+    {
+      "name": "Beyzanur",
+      "surName": "Güneş",
+      "tc": 10928374650,
+      "schoolNumber": 1,
+      "address": "Bilmem ki neredesin",
+      "loginId": 6,
+      "id": 2
+    }
+  ],
+  "families": [
+    {
+      "motherName": "HÜLYA",
+      "motherTc": 12345678901,
+      "motherNumber": 5439289882,
+      "fatherName": "FARUK",
+      "fatherTc": 98765432123,
+      "fatherNumber": 5333020302,
+      "loginId": 4,
+      "id": 1
+    }
+  ],
+  "connections": [
+    {
+      "studentId": 1,
+      "familyId": 1,
+      "id": 1
+    },
+    {
+      "familyId": 1,
+      "studentId": 2,
+      "id": 2
+    }
+  ],
+  "user": [
+    {
+      "id": 3,
+      "emailAddress": "admin@admin.com",
+      "password": "12345",
+      "role": 1
+    },
+    {
+      "emailAddress": "baymanga47@gmail.com",
+      "role": 2,
+      "password": "OFSc2FXcrz",
+      "id": 4
+    },
+    {
+      "emailAddress": "bayomerfg@gmail.com",
+      "role": 3,
+      "password": "15y14H1F4k",
+      "id": 5
+    },
+    {
+      "emailAddress": "bayferman47@gmail.com",
+      "password": "fCABVkJvN6",
+      "id": 6
+    },
+    {
+      "emailAddress": "admins@admins.com",
+      "role": 1,
+      "password": "0qgm7VqPmu",
+      "id": 7
+    }
+  ]
+}

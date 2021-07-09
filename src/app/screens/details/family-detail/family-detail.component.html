@@ -1,0 +1,61 @@
+<button class="btn btn-sm btn-success" *ngIf="isLoggedIn()=='1'" [routerLink]="['/AddStudent/',id]">Aileye Öğrenci Ekle</button>
+<h4>Aile Bilgisi</h4>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td class="table-info">ANNE İSMİ</td>
+      <td class="table-light">{{family.motherName}}</td>
+    </tr>
+    <tr>
+      <td class="table-info">ANNE TC KİMLİK NUMARASI</td>
+      <td class="table-light">{{family.motherTc}}</td>
+    </tr>
+    <tr>
+      <td class="table-info">ANNE TELEFON NUMARASI</td>
+      <td class="table-light">{{family.motherNumber}}</td>
+    </tr>
+    <tr>
+      <td class="table-info">BABA İSMİ</td>
+      <td class="table-light">{{family.fatherName}}</td>
+    </tr>
+    <tr>
+      <td class="table-info">BABA TC KİMLİK NUMARASI</td>
+      <td class="table-light">{{family.fatherTc}}</td>
+    </tr>
+    <tr>
+      <td class="table-info">BABA TELEFON NUMARASI</td>
+      <td class="table-light">{{family.fatherNumber}}</td>
+    </tr>
+  </tbody>
+  
+  </table>
+
+  <div >
+    <h4>Ögrenciler</h4>
+    <table  class="table table-hover">
+      <tbody *ngFor="let a of students; let index = index">
+       <tr>
+          <td class="table-info">İSİM</td>
+          <td class="table-light">{{a.name}}</td>
+        </tr>
+        <tr>
+          <td class="table-info">SOYAD</td>
+          <td class="table-light">{{a.surName}}</td>
+        </tr>
+        <tr>
+          <td class="table-info">TC KİMLİK NUMARASI</td>
+          <td class="table-light">{{a.tc}}</td>
+        </tr>
+        <tr>
+          <td class="table-info">OKUL NUMARASI</td>
+          <td class="table-light">{{a.schoolNumber}}</td>
+        </tr>
+        <tr>
+          <td class="table-info">address</td>
+          <td class="table-light">{{a.address}}</td>
+        </tr> 
+      
+      </tbody>
+    </table>
+  </div>
+  

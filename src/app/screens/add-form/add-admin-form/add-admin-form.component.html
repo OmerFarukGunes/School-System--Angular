@@ -1,0 +1,10 @@
+<form #AddForm="ngForm" (ngSubmit)="add()">
+<div class="form-control">
+  <label for="adminEmail">ADMİN EMAİL ADRESİ</label>
+    <input type="email" placeholder="ornek@ornek.com" #adminEmail="ngModel" [(ngModel)]="admin.emailAddress" class="form-control" name="admin" id="admin" required email>
+    <div *ngIf="adminEmail.errors?.email" class="alert alert-danger">Geçerli Email Adresi Giriniz</div>
+</div>
+<div>
+<button type="submit" class="btn btn-primary" [disabled]="AddForm.invalid">KAYDET</button>
+</div>
+</form>

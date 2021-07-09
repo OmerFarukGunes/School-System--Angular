@@ -1,0 +1,70 @@
+<h1 *ngIf="isAddMode">Öğrenci Ekle</h1>
+<h1 *ngIf="!isAddMode">Öğrenci Güncelle</h1>
+<form #AddForm="ngForm" (ngSubmit)="onSubmit()">
+<div class="form-control">
+    <label for="name">ÖĞRENCİ İSMİ</label>
+    <input type="text" placeholder="min. 3 karakter" #name="ngModel" [(ngModel)]="student.name" class="form-control" name="name" id="name" required minlength="3">
+    <div *ngIf="name.invalid&&name.dirty" class="alert alert-danger">En Az 3 Karakter Girilmelidir</div>
+</div>
+<div class="form-control">
+    <label for="surName">ÖĞRENCİ SOYADI</label>
+    <input type="text" placeholder="min. 2 karakter" #surName="ngModel" [(ngModel)]="student.surName" class="form-control" name="surName" id="surName" required minlength="2">
+    <div *ngIf="surName.invalid&&surName.dirty" class="alert alert-danger">En Az 2 Karakter Girilmelidir</div>
+</div>
+<div class="form-control">
+    <label for="tc">ÖĞRENCİ TC NUMARASI</label>
+    <input type="number" placeholder="xxxxxxxxxxx" #tc="ngModel" [(ngModel)]="student.tc" class="form-control" name="tc" id="tc" required min="10000000000" max="99999999999">
+    <div *ngIf="tc.errors?.min || tc.errors?.max" class="alert alert-danger">11 Haneli olmalıdır</div>
+</div>
+<div class="form-control">
+    <label for="schoolNumber">ÖĞRENCİ OKUL NUMARASI</label>
+    <input type="number" placeholder="x" #schoolNumber="ngModel" [(ngModel)]="student.schoolNumber" class="form-control" name="schoolNumber" id="schoolNumber" required>
+</div>
+<div class="form-control">
+    <label for="address">ÖĞRENCİ ADRESİ</label>
+    <input type="text" placeholder="min. 10 karakter" #address="ngModel" [(ngModel)]="student.address" class="form-control" name="address" id="address" required minlength="10">
+    <div *ngIf="address.invalid&&address.dirty" class="alert alert-danger ">En Az 10 Karakter Girilmelidir.</div>
+</div>
+<div class="form-control">
+    <label for="motherName">ANNE ADI</label>
+    <input type="text" placeholder="min. 3 karakter" #motherName="ngModel" [(ngModel)]="family.motherName" class="form-control" name="motherName" id="motherName" required minlength="3">
+    <div *ngIf="motherName.invalid&&motherName.dirty" class="alert alert-danger">En Az 3 Karakter Girilmelidir</div>
+</div>
+<div class="form-control">
+    <label for="motherTc">ANNE TC KİMLİK NUMARASI</label>
+    <input type="number" placeholder="xxxxxxxxxxx" #motherTc="ngModel" [(ngModel)]="family.motherTc"  class="form-control"  name="motherTc" id="motherTc"  required min="10000000000" max="99999999999">
+    <div *ngIf="motherTc.errors?.min || motherTc.errors?.max" class="alert alert-danger">11 Haneli olmalıdır</div>
+</div>
+<div class="form-control">
+    <label for="motherNumber">ANNE TELEFON NUMARASI</label>
+    <input type="number" placeholder="555 555 55 55" #motherNumber="ngModel" [(ngModel)]="family.motherNumber" class="form-control" name="motherNumber" id="motherNumber" required min="1000000000" max="9999999999"> 
+    <div *ngIf="motherNumber.errors?.min || motherNumber.errors?.max" class="alert alert-danger">10 Haneli olmalıdır</div>
+</div>
+<div class="form-control">
+    <label for="fatherName">BABA ADI</label>
+    <input type="text" placeholder="min. 3 karakter" #fatherName="ngModel" [(ngModel)]="family.fatherName" class="form-control" name="fatherName" id="fatherName" required minlength="3">
+    <div *ngIf="fatherName.invalid&&fatherName.dirty" class="alert alert-danger">En Az 3 Karakter Girilmelidir</div>
+</div>
+<div class="form-control">
+    <label for="fatherTc">BABA TC KİMLİK NUMARASI</label>
+    <input type="number" placeholder="xxxxxxxxxxx" #fatherTc="ngModel" [(ngModel)]="family.fatherTc" class="form-control" name="fatherTc" id="fatherTc" required min="10000000000" max="99999999999"> 
+    <div *ngIf="fatherTc.errors?.min || fatherTc.errors?.max" class="alert alert-danger">11 Haneli olmalıdır</div>
+</div>
+<div class="form-control">
+    <label for="fatherNumber">BABA TELEFON NUMARASI</label>
+    <input type="number" placeholder="555 555 55 55" #fatherNumber="ngModel" [(ngModel)]="family.fatherNumber" class="form-control" name="fatherNumber" id="fatherNumber" required min="1000000000" max="9999999999" >
+    <div *ngIf="fatherNumber.errors?.min || fatherNumber.errors?.max" class="alert alert-danger">10 Haneli olmalıdır</div>
+</div>
+<div class="form-control">
+    <label for="parentEmail">VELİ EMAİL ADRESİ</label>
+    <input type="email" placeholder="ornek@ornek.com" #parentEmail="ngModel" [(ngModel)]="familyUser.emailAddress" class="form-control" name="parentEmail" id="parentEmail" required email>
+    <div *ngIf="parentEmail.errors?.email" class="alert alert-danger">Geçerli Email Adresi Giriniz</div>
+</div>
+<div class="form-control">
+    <label for="studentEmail">ÖĞRENCİ EMAİL ADRESİ</label>
+    <input type="email" placeholder="ornek@ornek.com" #studentEmail="ngModel" [(ngModel)]="studentUser.emailAddress" class="form-control" name="studentEmail" id="studentEmail" required email>
+    <div *ngIf="studentEmail.errors?.email" class="alert alert-danger">Geçerli Email Adresi Giriniz</div>
+</div>
+<div>
+<button type="submit" class="btn btn-primary" [disabled]="AddForm.invalid" >KAYDET</button>
+</div>

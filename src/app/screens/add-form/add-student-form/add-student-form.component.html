@@ -1,0 +1,38 @@
+<h1>Öğrenci Ekle</h1>
+<form #AddForm="ngForm" (ngSubmit)="add()">
+    <div class="form-control">
+        <label for="name">ÖĞRENCİ İSMİ</label>
+        <input type="text" placeholder="min. 3 karakter" #name="ngModel" [(ngModel)]="student.name" class="form-control" name="name" id="name" required minlength="3">
+        <div *ngIf="name.invalid&&name.dirty" class="alert alert-danger">En Az 3 Karakter Girilmelidir</div>
+    </div>
+    <div class="form-control">
+        <label for="surName">ÖĞRENCİ SOYADI</label>
+        <input type="text" placeholder="min. 2 karakter" #surName="ngModel" [(ngModel)]="student.surName" class="form-control" name="surName" id="surName" required minlength="2">
+        <div *ngIf="surName.invalid&&surName.dirty" class="alert alert-danger">En Az 2 Karakter Girilmelidir</div>
+    </div>
+    <div class="form-control">
+        <label for="tc">ÖĞRENCİ TC NUMARASI</label>
+        <input type="number" placeholder="xxxxxxxxxxx" #tc="ngModel" [(ngModel)]="student.tc" class="form-control" name="tc" id="tc" required min="10000000000" max="99999999999">
+        <div *ngIf="tc.errors?.min || tc.errors?.max" class="alert alert-danger">11 Haneli olmalıdır</div>
+    </div>
+    <div class="form-control">
+        <label for="schoolNumber">ÖĞRENCİ OKUL NUMARASI</label>
+        <input type="number" placeholder="x" #schoolNumber="ngModel" [(ngModel)]="student.schoolNumber" class="form-control" name="schoolNumber" id="schoolNumber" required>
+    </div>
+    <div class="form-control">
+        <label for="address">ÖĞRENCİ ADRESİ</label>
+        <input type="text" placeholder="min. 10 karakter" #address="ngModel" [(ngModel)]="student.address" class="form-control" name="address" id="address" required minlength="10">
+        <div *ngIf="address.invalid&&address.dirty" class="alert alert-danger ">En Az 10 Karakter Girilmelidir.</div>
+    </div>
+    <div class="form-control">
+        <label for="studentEmail">ÖĞRENCİ EMAİL ADRESİ</label>
+        <input type="email" placeholder="ornek@ornek.com" #studentEmail="ngModel" [(ngModel)]="studentUser.emailAddress" class="form-control" name="studentEmail" id="studentEmail" required email>
+        <div *ngIf="studentEmail.errors?.email" class="alert alert-danger">Geçerli Email Adresi Giriniz</div>
+    </div>
+<div>
+<button type="submit" class="btn btn-primary" [disabled]="AddForm.invalid">KAYDET</button>
+</div>
+  <!-- form gecerli degilse pasif kalir  -->
+  
+  
+</form>
